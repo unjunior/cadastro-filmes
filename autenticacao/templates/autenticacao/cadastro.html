@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}Cadastro{% endblock  %}
+
+{% block 'conteudo' %}
+
+<h2>Faça o Cadastro</h2>
+
+{% include 'partes/_messages.html' %}
+
+<form action="{% url 'cadastro' %}" method="POST">
+    {% csrf_token %}
+    
+    <p><input type="text" name="nome" placeholder="Nome do Usuário" required></p>
+    <p><input type="email" name="email" placeholder="E-mail"></p>
+    <p><input type="password" name="senha" placeholder="Senha"></p>
+    <p><input type="password" name="confirmar_senha" placeholder="confirmar a senha"></p>
+
+    <p><input type="submit" value="Cadastrar"></p>
+
+    <br>
+    <p>
+        <h3>Se já tiver cadastro, faça login.</h3>
+    </p>
+    <a href="{% url 'logar' %}" class="btn btn-info btn-lg">Login</a>
+</form>
+{% endblock  %}

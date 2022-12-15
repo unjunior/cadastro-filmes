@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}Login{% endblock  %}
+
+{% block 'conteudo' %}
+
+<h2>Entre no sistema</h2>
+
+{% include 'partes/_messages.html' %}
+
+<form action="{% url 'logar' %}" method="POST">
+    {% csrf_token %}
+    
+    <p><input type="text" name="nome" placeholder="Nome do Usuário" required></p>
+    <p><input type="password" name="senha" placeholder="Senha" required></p>
+
+    <p><input type="submit" value="Login"></p>
+
+    <br>
+    <p>
+        <h4>Se não tiver login, faça o cadastro.</h4>
+    </p>
+    <a href="{% url 'cadastro' %}" class="btn btn-info btn-lg">Cadastro</a>
+</form>
+{% endblock  %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block 'titulo' %}Agenda de Filmes{% endblock %}
+{% load static %}
+
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% endblock %}
+
+
+{% block 'conteudo' %}
+<br>
+<h2>{{filme_unico.nome}}</h2>
+<hr>
+<br>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Assistido</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Classificacao</th>
+        <th scope="col">Sinopse</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{filme_unico.nome}}</td>
+            <td>{{filme_unico.ano}}</td>
+            <td>
+              {% if filme_unico.assistido == True %}
+              Sim
+              {% else %}
+              Não
+              {% endif %}
+            </td>
+            
+            <td>{{filme_unico.get_genero_display}}</td>
+            <td>{{filme_unico.get_classificacao_display}}</td>
+            <td>{{filme_unico.sinopse}}</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  
+{% endblock %}

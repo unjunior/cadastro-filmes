@@ -1,0 +1,13 @@
+body{
+    background-color: Gainsboro;
+    
+}
+
+.navbar{
+    border: 1px solid darkcyan;
+    margin: 3px;
+}
+
+.container{
+    border: 1px solid green;
+}
